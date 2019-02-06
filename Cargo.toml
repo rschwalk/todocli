@@ -1,0 +1,7 @@
+[package]
+name = "todocli"
+version = "0.1.0"
+authors = ["'rschwalk' <'richard.schwalk@gmail.com'>"]
+edition = "2018"
+
+[dependencies]
