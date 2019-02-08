@@ -35,7 +35,11 @@ impl TodoList {
     }
 
     fn mark_done(&mut self, index: usize) {
-        self.list[index].completed = 'x';
+        if self.list[index].completed == ' ' {
+            self.list[index].completed = 'x';
+        } else {
+            self.list[index].completed = ' ';
+        }
     }
 }
 
@@ -59,6 +63,7 @@ fn main() {
 
     todo_list.add_to_list("Todo1".to_string());
     todo_list.add_to_list("Todo2".to_string());
+    todo_list.mark_done(0);
 
     match command {
         Commands::Get => todo_list.print(),
