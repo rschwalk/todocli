@@ -22,7 +22,7 @@ impl TodoList {
     fn new() -> TodoList {
         TodoList{ list: Vec::new()}
     }
-    
+
     fn add_to_list(&mut self, name: String) {
         let todo_item = TodoItem::new(name);
         self.list.push(todo_item);
@@ -48,7 +48,7 @@ impl TodoList {
 }
 
 enum Commands {
-    Get, 
+    Get,
     Add(String),
     Done(usize),
     Remove(usize)
@@ -64,7 +64,7 @@ fn main() {
         "remove" => Commands::Remove(arguments[2].parse().expect("error converting to integer")),
         _ => panic!("you must provide an accepdet command")
     };
-    
+
     let mut todo_list = TodoList::new();
 
     todo_list.add_to_list("Todo1".to_string());
@@ -75,7 +75,7 @@ fn main() {
         Commands::Get => todo_list.print(),
         Commands::Add(task) => {
             todo_list.add_to_list(task);
-            todo_list.print();    
+            todo_list.print();
         },
         Commands::Done(index) => {
             todo_list.mark_done(index);
